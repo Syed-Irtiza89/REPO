@@ -2262,33 +2262,51 @@
 
                     <div class="col-lg-5 col-12 offset-lg-1" data-anim="zoom-in">
                         <div
-                            style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; padding: 50px 45px; box-shadow: 0 40px 80px rgba(0,0,0,0.6);">
-                            <h3 style="color: white; font-weight: 800; margin-bottom: 10px;">Get a Free Quote</h3>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 35px;">Tell us
-                                about your project and we'll get back to you fast.</p>
+                            style="background: #1a0033; border: 2px solid rgba(109,22,223,0.3); border-radius: 30px; padding: 50px 45px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); position: relative; overflow: hidden;">
+                            <!-- Subtle glow effect inside -->
+                            <div
+                                style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(13,187,201,0.15) 0%, transparent 70%); pointer-events: none;">
+                            </div>
+
+                            <h3 style="color: white; font-weight: 800; margin-bottom: 10px; font-size: 2.2rem;">Get a
+                                Free Quote</h3>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 35px;">Tell us about
+                                your project and we'll get back to you fast.</p>
 
                             <form action="#" method="post" role="form">
                                 <div class="mb-4">
-                                    <input type="text" name="full-name" class="form-control" placeholder="Full Name"
-                                        required
-                                        style="height: 60px; border-radius: 15px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0 25px;">
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Full
+                                        Name</label>
+                                    <input type="text" name="full-name" class="form-control"
+                                        placeholder="Enter your name" required
+                                        style="height: 60px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0 20px; font-weight: 500;">
                                 </div>
                                 <div class="mb-4">
-                                    <input type="email" name="email" class="form-control" placeholder="Email Address"
-                                        required
-                                        style="height: 60px; border-radius: 15px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0 25px;">
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Email
+                                        Address</label>
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="example@email.com" required
+                                        style="height: 60px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0 20px; font-weight: 500;">
                                 </div>
                                 <div class="mb-4">
-                                    <textarea name="message" class="form-control" placeholder="Describe your project..."
-                                        rows="4"
-                                        style="border-radius: 15px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 20px 25px; resize: none;"></textarea>
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Project
+                                        Details</label>
+                                    <textarea name="message" class="form-control"
+                                        placeholder="Briefly describe what you need..." rows="4"
+                                        style="border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 15px 20px; resize: none; font-weight: 500;"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-ripple w-100"
-                                    style="height: 65px; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white; font-weight: 800; font-size: 1.2rem; border-radius: 15px; border: none; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(109,22,223,0.3);">
+                                    style="height: 65px; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white; font-weight: 800; font-size: 1.25rem; border-radius: 12px; border: none; transition: all 0.4s ease; box-shadow: 0 15px 35px rgba(109,22,223,0.4); text-transform: uppercase; letter-spacing: 1px;">
                                     Request Your Quote →
                                 </button>
-                                <p class="text-center mt-3" style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">
-                                    Fast response within 24 hours</p>
+                                <div class="mt-4 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-shield-lock" style="color: #0dbbc9;"></i>
+                                    <p class="mb-0" style="color: rgba(255,255,255,0.4); font-size: 0.8rem;">Your data
+                                        is secure and private.</p>
+                                </div>
                             </form>
                         </div>
                     </div>
