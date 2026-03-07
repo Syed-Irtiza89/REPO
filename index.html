@@ -163,7 +163,7 @@
 
         .navbar.scrolled {
             background-color: rgba(10, 0, 16, 0.95) !important;
-            backdrop-filter: blur(20px) !important;
+            backdrop-filter: blur(8px) !important;
             box-shadow: 0 4px 30px rgba(109, 22, 223, 0.3);
         }
 
@@ -381,12 +381,12 @@
             color: white;
         }
 
+
         /* =============================================
            ADVANCED MULTI-EFFECT SCROLL ANIMATIONS
         ============================================= */
-        [data-anim] {
-            will-change: opacity, transform, filter;
-        }
+        /* will-change removed globally — applying to all elements wastes GPU memory */
+
 
         [data-anim="fade-up"] {
             opacity: 0;
@@ -478,17 +478,16 @@
             transform: perspective(600px) rotateX(0deg) translateY(0);
         }
 
+
         [data-anim="blur-in"] {
             opacity: 0;
-            filter: blur(18px);
-            transform: scale(1.04);
-            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), filter 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(30px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-anim="blur-in"].anim-done {
             opacity: 1;
-            filter: blur(0);
-            transform: scale(1);
+            transform: translateY(0);
         }
 
         [data-anim="skew-left"] {
@@ -1893,17 +1892,16 @@
                     position: relative;
                     border-radius: 24px;
                     overflow: hidden;
-                    background: rgba(255, 255, 255, 0.03);
-                    backdrop-filter: blur(15px);
-                    -webkit-backdrop-filter: blur(15px);
+                    background: rgba(255, 255, 255, 0.07);
+                    /* backdrop-filter removed: very expensive on many stacked elements */
                     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
                     text-decoration: none !important;
                     display: flex;
                     flex-direction: column;
                     height: 100%;
                     cursor: default;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.12);
                 }
 
                 .srv-card:hover {
@@ -3184,10 +3182,10 @@
                         },
                         spaceBetween: 30,
                         autoplay: {
-                            delay: 2000,
-                            disableOnInteraction: false,
+                            delay: 4500,
+                            disableOnInteraction: true,
                         },
-                        speed: 1500,
+                        speed: 800,
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,
@@ -3587,9 +3585,9 @@
     <script>
         // PAGE LOADER
         function hideLoader() { var l = document.getElementById('page-loader'); if (l) l.classList.add('hidden'); }
-        window.addEventListener('load', function () { setTimeout(hideLoader, 1800); });
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 2200); });
-        setTimeout(hideLoader, 3000);
+        window.addEventListener('load', function () { setTimeout(hideLoader, 500); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 800); });
+        setTimeout(hideLoader, 1000);
 
 
 
@@ -3638,37 +3636,9 @@
             animObserver.observe(el);
         });
 
-        // HERO CANVAS PARTICLES
-        const canvas = document.getElementById('heroCanvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-            class Particle {
-                constructor() { this.reset(); }
-                reset() {
-                    this.x = Math.random() * canvas.width; this.y = canvas.height + 20;
-                    this.size = Math.random() * 3 + 1; this.speedY = -(Math.random() * 1.5 + 0.5);
-                    this.speedX = (Math.random() - 0.5) * 0.8; this.opacity = 0;
-                    this.maxOpacity = Math.random() * 0.5 + 0.2; this.life = 0;
-                    this.maxLife = Math.random() * 200 + 100;
-                    this.color = Math.random() > 0.5 ? '109,22,223' : '13,187,201';
-                }
-                update() {
-                    this.life++; this.x += this.speedX; this.y += this.speedY;
-                    if (this.life < 20) this.opacity = (this.life / 20) * this.maxOpacity;
-                    else if (this.life > this.maxLife - 20) this.opacity = ((this.maxLife - this.life) / 20) * this.maxOpacity;
-                    else this.opacity = this.maxOpacity;
-                    if (this.life >= this.maxLife || this.y < -20) this.reset();
-                }
-                draw() { ctx.save(); ctx.globalAlpha = this.opacity; ctx.fillStyle = `rgba(${this.color}, 1)`; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
-            }
-            for (let i = 0; i < 60; i++) { const p = new Particle(); p.life = Math.floor(Math.random() * p.maxLife); p.y = Math.random() * canvas.height; particles.push(p); }
-            function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animateParticles); }
-            animateParticles();
-        }
+
+        // HERO CANVAS PARTICLES — REMOVED (heavy GPU drain: 60 particles × 60fps)
+
 
         // RIPPLE EFFECT
         document.querySelectorAll('.btn-ripple').forEach(function (btn) {
