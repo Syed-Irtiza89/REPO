@@ -2101,7 +2101,7 @@
                     <div class="col-lg-5 col-12 offset-lg-1 text-center" data-anim="flip-y">
                         <div class="member-block d-inline-block" style="max-width: 320px; margin: 0 auto;">
                             <div class="member-block-image-wrap">
-                                <img src="images/mike.jpeg" class="member-block-image img-fluid"
+                                <img src="images/mike_baby.jpg" class="member-block-image img-fluid"
                                     alt="Mike Scollo - Founder & Operations Director"
                                     style="width: 100%; height: auto; border-radius: 0;">
 
@@ -2774,25 +2774,23 @@
                                     <label
                                         style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Full
                                         Name</label>
-                                    <input type="text" name="full-name" class="form-control"
-                                        placeholder="Enter your name" required
-                                        style="height: 60px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0 20px; font-weight: 500;">
+                                    <input type="text" name="full-name" class="form-control dark-quote-input"
+                                        placeholder="Enter your name" required>
                                 </div>
                                 <div class="mb-4">
                                     <label
                                         style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Email
                                         Address</label>
-                                    <input type="email" name="email" class="form-control"
-                                        placeholder="example@email.com" required
-                                        style="height: 60px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0 20px; font-weight: 500;">
+                                    <input type="email" name="email" class="form-control dark-quote-input"
+                                        placeholder="example@email.com" required>
                                 </div>
                                 <div class="mb-4">
                                     <label
                                         style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Project
                                         Details</label>
-                                    <textarea name="message" class="form-control"
+                                    <textarea name="message" class="form-control dark-quote-input"
                                         placeholder="Briefly describe what you need..." rows="4"
-                                        style="border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 15px 20px; resize: none; font-weight: 500;"></textarea>
+                                        style="resize: none;"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-ripple w-100"
                                     style="height: 65px; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white; font-weight: 800; font-size: 1.25rem; border-radius: 12px; border: none; transition: all 0.4s ease; box-shadow: 0 15px 35px rgba(109,22,223,0.4); text-transform: uppercase; letter-spacing: 1px;">
@@ -2804,6 +2802,28 @@
                                         is secure and private.</p>
                                 </div>
                             </form>
+                            <style>
+                                .dark-quote-input {
+                                    border-radius: 12px;
+                                    background: rgba(13, 187, 201, 0.1) !important;
+                                    border: 1px solid rgba(13, 187, 201, 0.3) !important;
+                                    color: white !important;
+                                    padding: 15px 20px;
+                                    font-weight: 500;
+                                }
+
+                                .dark-quote-input:focus {
+                                    background: rgba(13, 187, 201, 0.15) !important;
+                                    border-color: #0dbbc9 !important;
+                                    box-shadow: 0 0 0 3px rgba(13, 187, 201, 0.25) !important;
+                                    color: white !important;
+                                }
+
+                                .dark-quote-input::placeholder {
+                                    color: rgba(255, 255, 255, 0.7) !important;
+                                    opacity: 1;
+                                }
+                            </style>
                         </div>
                     </div>
                 </div>
